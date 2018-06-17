@@ -56,7 +56,7 @@ class Link
         $parsedUrl = parse_url($this->url);
 
         $this->scheme = $parsedUrl['scheme'];
-        $this->path   = $parsedUrl['path'];
+        $this->path   = $parsedUrl['path'] ?? null;
         $this->host   = $parsedUrl['host'];
     }
 
