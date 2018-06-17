@@ -20,6 +20,21 @@ abstract class AbstractReportGenerator
     private $filenamePrefix;
 
     /**
+     * @var FileSaverInterface
+     */
+    private $fileSaver;
+
+    /**
+     * AbstractReportGenerator constructor.
+     * @param FileSaverInterface $fileSaver
+     */
+    public function __construct (FileSaverInterface $fileSaver)
+    {
+
+        $this->fileSaver = $fileSaver;
+    }
+
+    /**
      * @param string $reportName
      * @param Collection $data
      * @return void
@@ -38,12 +53,7 @@ abstract class AbstractReportGenerator
      */
     final protected function save(string $content) : void
     {
-        $savePath = $this->savePath();
-        $saveResult = file_put_contents($savePath, $content);
-
-        if($saveResult === false) {
-            throw new FailedSaveReportFileException($savePath);
-        }
+        $this->fileSaver->save($this->savePath(), $content);
     }
 
     /**
