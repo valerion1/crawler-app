@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php declare( strict_types = 1 );
+
+use App\App;
+use App\Crawler\Crawler;
+use App\Input\ConsoleInput;
+use App\ReportGenerator\HtmlReportGenerator;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$consoleInput = ConsoleInput::createFromGlobals();
+
+$app = new App(
+    new Crawler(),
+    new HtmlReportGenerator()
+);
+$app->handle($consoleInput);
