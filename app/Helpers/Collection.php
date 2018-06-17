@@ -86,7 +86,7 @@ class Collection implements Countable, ArrayAccess
      */
     public function sortBy (callable $callback) : self
     {
-        uasort($this->items, $callback);
+        usort($this->items, $callback);
 
         return $this;
     }
@@ -118,7 +118,7 @@ class Collection implements Countable, ArrayAccess
     }
 
     /**
-     * @return mixed|null
+     * @return mixed
      */
     public function first ()
     {
