@@ -4,19 +4,22 @@
 use App\App;
 use App\Crawler\Crawler;
 use App\Input\ConsoleInput;
+use App\ReportGenerator\FileSaver;
 use App\ReportGenerator\HtmlReportGenerator;
 
 require __DIR__ . '/../vendor/autoload.php';
 
 $consoleInput = ConsoleInput::createFromGlobals();
 
+$crawler         = new Crawler();
+$reportGenerator = new HtmlReportGenerator(new FileSaver());
+
 $app = new App(
-    new Crawler(),
-    new HtmlReportGenerator()
+    $crawler,
+    $reportGenerator
 );
 try {
     $app->handle($consoleInput);
-}
-catch (Exception $exception) {
+} catch (Exception $exception) {
     echo PHP_EOL . $exception->getMessage() . PHP_EOL;
 }
