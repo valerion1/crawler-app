@@ -6,7 +6,7 @@ namespace App\ReportGenerator;
  * Interface FileSaverInterface
  * @package App\ReportGenerator
  */
-interface FileSaverInterface
+interface ReportSaverInterface
 {
     /**
      * @param string $filename

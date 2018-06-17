@@ -8,7 +8,7 @@ use App\Exception\FailedSaveReportFileException;
  * Class FileSaver
  * @package App\ReportGenerator
  */
-class FileSaver implements FileSaverInterface
+class FileSaver implements ReportSaverInterface
 {
     /**
      * @param string $filename

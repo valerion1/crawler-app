@@ -20,17 +20,16 @@ abstract class AbstractReportGenerator
     private $filenamePrefix;
 
     /**
-     * @var FileSaverInterface
+     * @var ReportSaverInterface
      */
     private $fileSaver;
 
     /**
      * AbstractReportGenerator constructor.
-     * @param FileSaverInterface $fileSaver
+     * @param ReportSaverInterface $fileSaver
      */
-    public function __construct (FileSaverInterface $fileSaver)
+    public function __construct (ReportSaverInterface $fileSaver)
     {
-
         $this->fileSaver = $fileSaver;
     }
 
