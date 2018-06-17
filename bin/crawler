@@ -14,4 +14,9 @@ $app = new App(
     new Crawler(),
     new HtmlReportGenerator()
 );
-$app->handle($consoleInput);
+try {
+    $app->handle($consoleInput);
+}
+catch (Exception $exception) {
+    echo PHP_EOL . $exception->getMessage() . PHP_EOL;
+}
