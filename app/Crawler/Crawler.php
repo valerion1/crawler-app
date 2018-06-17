@@ -67,7 +67,7 @@ class Crawler implements CrawlerInterface
             try {
                 $this->handleLink($this->unhandledLinks->shift());
             } catch (UnableToLoadPageException $loadPageException) {
-                echo $loadPageException->getMessage() . PHP_EOL;
+                echo PHP_EOL . $loadPageException->getMessage() . PHP_EOL;
             }
         }
     }
