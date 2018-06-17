@@ -99,7 +99,7 @@ class Crawler implements CrawlerInterface
      */
     private function getPage (string $url) : string
     {
-        $pageContent = file_get_contents($url);
+        $pageContent = @file_get_contents($url);
 
         if ($pageContent === false) {
             throw new UnableToLoadPageException($url);
@@ -118,7 +118,7 @@ class Crawler implements CrawlerInterface
         // . - in regex any character
         $preparedHost = str_replace('.', '\.', $link->getHost());
         preg_match_all(
-            "#<a.*href=[\"'](http[s]?://{$preparedHost}/?[^\"']+|[/]+[^\"']+)[\"']#m",
+            "#<a.*href=[\"'](http[s]?://{$preparedHost}/?[^\"']+|[/]+[^\"']+)[\"']#U",
             $content,
             $links
         );
@@ -129,7 +129,7 @@ class Crawler implements CrawlerInterface
     /**
      * @param array $links
      */
-    private function appendToUnhandled (array $links)
+    private function appendToUnhandled (array $links) : void
     {
         foreach ($links as $url) {
             $normalizedUrl = $this->normalizeUrl($url);
