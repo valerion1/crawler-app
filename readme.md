@@ -41,4 +41,4 @@ For run with docker compose use bash script:
 
 * crawl all pages on target domain
 * count img tags on each page
-* generate html report and save into reports dir
+* generate html report and save into _./reports_ dir
