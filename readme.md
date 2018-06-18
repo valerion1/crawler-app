@@ -4,7 +4,7 @@
 
 1. Generate autoload:
 
-``docker run --rm -v "$PWD":/app -w /app composer dump-autoload``
+``docker run --rm -v $(pwd):/app -w /app composer dump-autoload``
 
 2. Run crawler app:
 
