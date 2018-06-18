@@ -1,6 +1,6 @@
 # Crawler
 ## How to run
-With docker:
+**With docker:**
 
 1. Generate autoload:
 
@@ -10,7 +10,7 @@ With docker:
 
 ``docker run --rm -v $(pwd):/app -w /app php:7.2-cli ./bin/crawler https://example.com``
 
-For run with docker compose use bash script:
+**For run with docker compose use bash script:**
 
 1. Run bash script with input parameter - target domain. Example:
 
