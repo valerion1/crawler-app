@@ -1,7 +1,6 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\ReportGenerator;
-
 
 /**
  * Class HtmlTableBuilder
@@ -48,7 +47,7 @@ class HtmlTableBuilder
      * @param string $header
      * @return HtmlTableBuilder
      */
-    public function setHeader (string $header) : HtmlTableBuilder
+    public function setHeader(string $header) : HtmlTableBuilder
     {
         $this->header = $header;
 
@@ -59,7 +58,7 @@ class HtmlTableBuilder
      * @param string $body
      * @return HtmlTableBuilder
      */
-    public function setBody (string $body) : HtmlTableBuilder
+    public function setBody(string $body) : HtmlTableBuilder
     {
         $this->body = $body;
 
@@ -69,7 +68,7 @@ class HtmlTableBuilder
     /**
      * @return void
      */
-    public function buildHeader () : void
+    public function buildHeader() : void
     {
         $this->html .= $this->header;
     }
@@ -77,7 +76,7 @@ class HtmlTableBuilder
     /**
      * @return void
      */
-    public function buildBody () : void
+    public function buildBody() : void
     {
         $this->html .= $this->body;
     }
@@ -85,7 +84,7 @@ class HtmlTableBuilder
     /**
      * @return string
      */
-    public function build () : string
+    public function build() : string
     {
         $this->openTag();
         $this->buildHeader();
@@ -94,5 +93,4 @@ class HtmlTableBuilder
 
         return $this->html;
     }
-
 }

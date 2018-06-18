@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace Tests;
 
@@ -24,7 +24,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testCreate () : void
+    public function testCreate() : void
     {
         $crawler    = new Crawler();
         $reflection = new ReflectionClass($crawler);
@@ -49,7 +49,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testInit () : void
+    public function testInit() : void
     {
         $crawler    = new Crawler(self::TEST_DOMAIN);
         $reflection = new ReflectionClass($crawler);
@@ -74,7 +74,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testRun () : void
+    public function testRun() : void
     {
         $crawler = new Crawler(self::TEST_DOMAIN);
         $crawler->run();
@@ -93,7 +93,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testHandleLink () : void
+    public function testHandleLink() : void
     {
         $crawler    = new Crawler(self::TEST_DOMAIN);
         $reflection = new ReflectionClass($crawler);
@@ -114,7 +114,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testGetPage () : void
+    public function testGetPage() : void
     {
         $crawler    = new Crawler(self::TEST_DOMAIN);
         $reflection = new ReflectionClass($crawler);
@@ -133,7 +133,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testRetrieveLinks () : void
+    public function testRetrieveLinks() : void
     {
         $crawler       = new Crawler(self::TEST_DOMAIN);
         $reflection    = new ReflectionClass($crawler);
@@ -151,7 +151,7 @@ class CrawlerTest extends TestCase
     /**
      * @return string
      */
-    private function makeTestableHtml () : string
+    private function makeTestableHtml() : string
     {
         $link = self::TEST_DOMAIN . '/test';
 
@@ -161,7 +161,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testAppendToUnhandled () : void
+    public function testAppendToUnhandled() : void
     {
         $crawler           = new Crawler(self::TEST_DOMAIN);
         $reflection        = new ReflectionClass($crawler);
@@ -189,7 +189,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testNormalizeUrl () : void
+    public function testNormalizeUrl() : void
     {
         $crawler      = new Crawler(self::TEST_DOMAIN);
         $reflection   = new ReflectionClass($crawler);
@@ -206,7 +206,7 @@ class CrawlerTest extends TestCase
     /**
      * @return void
      */
-    public function testGetResult () : void
+    public function testGetResult() : void
     {
         $crawler = new Crawler(self::TEST_DOMAIN);
 

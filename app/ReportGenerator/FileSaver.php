@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\ReportGenerator;
 
@@ -15,11 +15,11 @@ class FileSaver implements ReportSaverInterface
      * @param string $content
      * @throws FailedSaveReportFileException
      */
-    public function save (string $filename, string $content) : void
+    public function save(string $filename, string $content) : void
     {
         $saveResult = file_put_contents($filename, $content);
 
-        if($saveResult === false) {
+        if ($saveResult === false) {
             throw new FailedSaveReportFileException($filename);
         }
     }

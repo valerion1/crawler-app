@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace Tests;
 
@@ -21,9 +21,8 @@ class AppTest extends TestCase
     /**
      * @return void
      */
-    public function testValidateUrl () : void
+    public function testValidateUrl() : void
     {
-
         $mockCrawler         = $this->createMock(CrawlerInterface::class);
         $mockReportGenerator = $this->createMock(AbstractReportGenerator::class);
         $testApp             = new App($mockCrawler, $mockReportGenerator);
@@ -42,7 +41,7 @@ class AppTest extends TestCase
     /**
      * @return void
      */
-    public function testHandle () : void
+    public function testHandle() : void
     {
         $mockCrawler = $this->getMockBuilder(Crawler::class)->setMethods([
             'appendToUnhandled',
@@ -51,8 +50,8 @@ class AppTest extends TestCase
         ])->getMock();
         $mockCrawler->expects(static::any())->method('appendToUnhandled');
         $mockCrawler->expects(static::once())->method('init')
-                                             ->with(self::stringContains('http'))
-                                             ->will(self::returnValue($mockCrawler));
+                    ->with(self::stringContains('http'))
+                    ->will(self::returnValue($mockCrawler));
         $mockCrawler->expects(static::once())->method('run');
 
         $mockReportGenerator = $this->createMock(AbstractReportGenerator::class);

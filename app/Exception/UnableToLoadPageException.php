@@ -1,7 +1,6 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Exception;
-
 
 use Exception;
 
@@ -15,7 +14,7 @@ class UnableToLoadPageException extends Exception
      * UnableToLoadPageException constructor.
      * @param string $url
      */
-    public function __construct (string $url)
+    public function __construct(string $url)
     {
         parent::__construct("Unable to load this page: \"$url\"");
     }

@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\ReportGenerator;
 
@@ -13,5 +13,5 @@ interface ReportSaverInterface
      * @param string $content
      * @return void
      */
-    public function save (string $filename, string $content) : void;
+    public function save(string $filename, string $content) : void;
 }

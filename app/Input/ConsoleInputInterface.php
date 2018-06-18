@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Input;
 
@@ -13,5 +13,5 @@ interface ConsoleInputInterface
     /**
      * @return Collection
      */
-    public function getArguments () : Collection;
+    public function getArguments() : Collection;
 }

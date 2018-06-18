@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Validation;
 
@@ -11,7 +11,7 @@ class SiteValidator extends AbstractValidator
     /**
      * @return string
      */
-    public function pattern () : string
+    public function pattern() : string
     {
         return '%^(?:http(s)?://)+[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!$&\'\(\)\*\+,;=.]+$%';
     }

@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace Tests;
 
@@ -14,7 +14,7 @@ class SiteValidatorTest extends TestCase
     /**
      * @return void
      */
-    public function testIsValid () : void
+    public function testIsValid() : void
     {
         self::assertFalse((new SiteValidator('htpp://example.com'))->isValid());
         self::assertFalse((new SiteValidator('https://example,com'))->isValid());

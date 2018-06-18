@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Crawler;
 
@@ -42,7 +42,7 @@ class Link
      * Site constructor.
      * @param string $url
      */
-    public function __construct (string $url)
+    public function __construct(string $url)
     {
         $this->url = $url;
         $this->parse();
@@ -51,7 +51,7 @@ class Link
     /**
      * @return void
      */
-    private function parse () : void
+    private function parse() : void
     {
         $parsedUrl = parse_url($this->url);
 
@@ -63,7 +63,7 @@ class Link
     /**
      * @return int
      */
-    public function getCountImages () : int
+    public function getCountImages() : int
     {
         return $this->countImages;
     }
@@ -72,7 +72,7 @@ class Link
      * @param int $countImages
      * @return Link
      */
-    public function setCountImages (int $countImages) : Link
+    public function setCountImages(int $countImages) : Link
     {
         $this->countImages = $countImages;
 
@@ -82,7 +82,7 @@ class Link
     /**
      * @return float
      */
-    public function getWorkTime () : float
+    public function getWorkTime() : float
     {
         return $this->workTime;
     }
@@ -91,7 +91,7 @@ class Link
      * @param float $workTime
      * @return Link
      */
-    public function setWorkTime (float $workTime) : Link
+    public function setWorkTime(float $workTime) : Link
     {
         $this->workTime = $workTime;
 
@@ -101,7 +101,7 @@ class Link
     /**
      * @return bool
      */
-    public function hasCountImages () : bool
+    public function hasCountImages() : bool
     {
         return $this->countImages !== null;
     }
@@ -109,7 +109,7 @@ class Link
     /**
      * @return string
      */
-    public function getUrl () : string
+    public function getUrl() : string
     {
         return $this->url;
     }
@@ -117,7 +117,7 @@ class Link
     /**
      * @return string
      */
-    public function getScheme () : string
+    public function getScheme() : string
     {
         return $this->scheme;
     }
@@ -125,7 +125,7 @@ class Link
     /**
      * @return string
      */
-    public function getHost () : string
+    public function getHost() : string
     {
         return $this->host;
     }
@@ -133,7 +133,7 @@ class Link
     /**
      * @return string
      */
-    public function getFullHost () : string
+    public function getFullHost() : string
     {
         return $this->scheme . '://' . $this->host;
     }
@@ -141,7 +141,7 @@ class Link
     /**
      * @return string
      */
-    public function getPath () : string
+    public function getPath() : string
     {
         return $this->path;
     }
@@ -149,7 +149,7 @@ class Link
     /**
      * @return string
      */
-    public function __toString () : string
+    public function __toString() : string
     {
         return $this->url;
     }

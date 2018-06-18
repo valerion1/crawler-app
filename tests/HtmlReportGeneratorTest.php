@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace Tests;
 
@@ -17,7 +17,7 @@ class HtmlReportGeneratorTest extends TestCase
     /**
      * @return void
      */
-    public function testGenerate () : void
+    public function testGenerate() : void
     {
         $mockFileSaver = $this->createMock(ReportSaverInterface::class);
         $mockFileSaver->expects(self::once())->method('save');
@@ -29,7 +29,7 @@ class HtmlReportGeneratorTest extends TestCase
     /**
      * @return void
      */
-    public function testMakeContent () : void
+    public function testMakeContent() : void
     {
         $mockFileSaver = $this->createMock(ReportSaverInterface::class);
         $mockFileSaver->expects(self::never())->method('save');
@@ -40,7 +40,7 @@ class HtmlReportGeneratorTest extends TestCase
         $makeContent->setAccessible(true);
 
         $generatedContent = $makeContent->invokeArgs($generator, [
-            new Collection()
+            new Collection(),
         ]);
 
         self::assertNotEmpty($generatedContent);

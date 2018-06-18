@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace Tests;
 
@@ -15,7 +15,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testCreate () : void
+    public function testCreate() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
         $reflection = new ReflectionClass($collection);
@@ -30,7 +30,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testPush () : void
+    public function testPush() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
         $collection->push('four');
@@ -47,7 +47,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testAppend () : void
+    public function testAppend() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
         $collection->append(['four', 'five']);
@@ -64,10 +64,10 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testMap () : void
+    public function testMap() : void
     {
         $collection       = new Collection([1, 2, 3]);
-        $mappedCollection = $collection->map(function(int $item) {
+        $mappedCollection = $collection->map(function (int $item) {
             return $item * 2;
         });
 
@@ -85,12 +85,12 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testEach () : void
+    public function testEach() : void
     {
         $collection = new Collection([1, 2, 3]);
 
         $itemsFromEach = [];
-        $collection->each(function(int $item) use(&$itemsFromEach) {
+        $collection->each(function (int $item) use (&$itemsFromEach) {
             $itemsFromEach[] = $item;
         });
 
@@ -105,7 +105,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testImplode () : void
+    public function testImplode() : void
     {
         $collection    = new Collection([1, 2, 3]);
         $implodeResult = $collection->implode('|');
@@ -124,10 +124,10 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsSortBy () : void
+    public function testsSortBy() : void
     {
         $collection = new Collection([1, 2, 3]);
-        $collection->sortBy(function(int $prev, int $next) {
+        $collection->sortBy(function (int $prev, int $next) {
             return $prev < $next;
         });
 
@@ -142,7 +142,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsUnique () : void
+    public function testsUnique() : void
     {
         $collection = new Collection([1, 2, 2, 3, 3]);
         $collection->unique();
@@ -158,7 +158,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsContains () : void
+    public function testsContains() : void
     {
         $collection   = new Collection(['one', 'two', 'three']);
         $containsOne  = $collection->contains('one');
@@ -167,15 +167,17 @@ class CollectionTest extends TestCase
         self::assertTrue($containsOne);
         self::assertFalse($containsFour);
 
-        $collection->push(new class{
-            public function __toString ()
+        $collection->push(new class
+        {
+            public function __toString()
             {
                 return 'tree';
             }
         });
 
-        $containsTree = $collection->contains(new class{
-            public function __toString ()
+        $containsTree = $collection->contains(new class
+        {
+            public function __toString()
             {
                 return 'tree';
             }
@@ -183,8 +185,9 @@ class CollectionTest extends TestCase
 
         self::assertTrue($containsTree);
 
-        $containsFlower = $collection->contains(new class{
-            public function __toString ()
+        $containsFlower = $collection->contains(new class
+        {
+            public function __toString()
             {
                 return 'flower';
             }
@@ -196,7 +199,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsFirst () : void
+    public function testsFirst() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
         $one        = $collection->first();
@@ -214,7 +217,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsCount () : void
+    public function testsCount() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
 
@@ -237,7 +240,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsIsNotEmpty () : void
+    public function testsIsNotEmpty() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
 
@@ -254,7 +257,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsIsEmpty () : void
+    public function testsIsEmpty() : void
     {
         $collection = new Collection();
 
@@ -275,7 +278,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsShift () : void
+    public function testsShift() : void
     {
         $collection = new Collection();
 
@@ -298,7 +301,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsOffsetExists () : void
+    public function testsOffsetExists() : void
     {
         $collection = new Collection();
 
@@ -315,7 +318,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsOffsetGet () : void
+    public function testsOffsetGet() : void
     {
         $collection = new Collection(['one', 'two', 'three', 'key' => 'five']);
 
@@ -328,16 +331,16 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsOffsetSet () : void
+    public function testsOffsetSet() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
 
-        $collection->offsetSet(null ,'four');
+        $collection->offsetSet(null, 'four');
         self::assertEquals(4, $collection->count());
         self::assertEquals('four', $collection->offsetGet(3));
 
 
-        $collection->offsetSet('key' ,'five');
+        $collection->offsetSet('key', 'five');
         self::assertEquals(5, $collection->count());
         self::assertEquals('five', $collection->offsetGet('key'));
     }
@@ -345,7 +348,7 @@ class CollectionTest extends TestCase
     /**
      * @return void
      */
-    public function testsOffsetUnset () : void
+    public function testsOffsetUnset() : void
     {
         $collection = new Collection(['one', 'two', 'three']);
 
@@ -354,6 +357,4 @@ class CollectionTest extends TestCase
         self::assertEquals('one', $collection->offsetGet(0));
         self::assertEquals('three', $collection->offsetGet(2));
     }
-
-
 }

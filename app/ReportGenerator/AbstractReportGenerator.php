@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\ReportGenerator;
 
@@ -28,7 +28,7 @@ abstract class AbstractReportGenerator
      * AbstractReportGenerator constructor.
      * @param ReportSaverInterface $fileSaver
      */
-    public function __construct (ReportSaverInterface $fileSaver)
+    public function __construct(ReportSaverInterface $fileSaver)
     {
         $this->fileSaver = $fileSaver;
     }
@@ -39,7 +39,7 @@ abstract class AbstractReportGenerator
      * @return void
      * @throws FailedSaveReportFileException
      */
-    public function generate (string $reportName, Collection $data) : void
+    public function generate(string $reportName, Collection $data) : void
     {
         $this->filenamePrefix = $reportName;
 
@@ -59,12 +59,12 @@ abstract class AbstractReportGenerator
      * @param Collection $data
      * @return string
      */
-    abstract protected function makeContent (Collection $data) : string;
+    abstract protected function makeContent(Collection $data) : string;
 
     /**
      * @return string
      */
-    private function savePath () : string
+    private function savePath() : string
     {
         return rtrim($this->saveDir(), '/') . '/' . ltrim($this->filename(), '/');
     }
@@ -72,12 +72,12 @@ abstract class AbstractReportGenerator
     /**
      * @return string
      */
-    abstract protected function saveDir () : string;
+    abstract protected function saveDir() : string;
 
     /**
      * @return string
      */
-    protected function filename () : string
+    protected function filename() : string
     {
         return $this->filenamePrefix . '_' . date('d.m.Y') . '.html';
     }

@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Validation;
 
@@ -17,7 +17,7 @@ abstract class AbstractValidator
      * AbstractValidator constructor.
      * @param string $subject
      */
-    public function __construct (?string $subject)
+    public function __construct(?string $subject)
     {
         $this->subject = $subject;
     }
@@ -25,7 +25,7 @@ abstract class AbstractValidator
     /**
      * @return bool
      */
-    public function isValid () : bool
+    public function isValid() : bool
     {
         return $this->subject !== null && preg_match($this->pattern(), $this->subject) === 1;
     }

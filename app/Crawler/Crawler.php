@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Crawler;
 
@@ -31,13 +31,12 @@ class Crawler implements CrawlerInterface
      * Crawler constructor.
      * @param string $targetDomain
      */
-    public function __construct (string $targetDomain = null)
+    public function __construct(string $targetDomain = null)
     {
         if ($targetDomain === null) {
             $this->unhandledLinks = new Collection();
             $this->handledLinks   = new Collection();
-        }
-        else {
+        } else {
             $this->init($targetDomain);
         }
     }
@@ -46,7 +45,7 @@ class Crawler implements CrawlerInterface
      * @param string $targetDomain
      * @return Crawler
      */
-    public function init (string $targetDomain) : self
+    public function init(string $targetDomain) : self
     {
         $normalizedDomain  = $this->normalizeUrl($targetDomain);
         $this->initialLink = new Link($normalizedDomain);
@@ -61,7 +60,7 @@ class Crawler implements CrawlerInterface
      * @return void
      * @throws UnableToLoadPageException
      */
-    public function run () : void
+    public function run() : void
     {
         while ($this->unhandledLinks->isNotEmpty()) {
             try {
@@ -76,7 +75,7 @@ class Crawler implements CrawlerInterface
      * @param Link $link
      * @throws UnableToLoadPageException
      */
-    private function handleLink (Link $link) : void
+    private function handleLink(Link $link) : void
     {
         $timer       = Timer::make()->start();
         $pageContent = $this->getPage($link->getUrl());
@@ -97,7 +96,7 @@ class Crawler implements CrawlerInterface
      * @return string
      * @throws UnableToLoadPageException
      */
-    private function getPage (string $url) : string
+    private function getPage(string $url) : string
     {
         $pageContent = @file_get_contents($url);
 
@@ -113,7 +112,7 @@ class Crawler implements CrawlerInterface
      * @param string $content
      * @return array
      */
-    private function retrieveLinks (Link $link, string $content) : array
+    private function retrieveLinks(Link $link, string $content) : array
     {
         // . - in regex any character
         $preparedHost = str_replace('.', '\.', $link->getHost());
@@ -129,7 +128,7 @@ class Crawler implements CrawlerInterface
     /**
      * @param array $links
      */
-    private function appendToUnhandled (array $links) : void
+    private function appendToUnhandled(array $links) : void
     {
         foreach ($links as $url) {
             $normalizedUrl = $this->normalizeUrl($url);
@@ -146,7 +145,7 @@ class Crawler implements CrawlerInterface
      * @param string $url
      * @return string
      */
-    private function normalizeUrl (string $url) : string
+    private function normalizeUrl(string $url) : string
     {
         return $url[0] === '/' ? $this->initialLink->getFullHost() . $url : $url;
     }
@@ -154,7 +153,7 @@ class Crawler implements CrawlerInterface
     /**
      * @return Collection
      */
-    public function getResult () : Collection
+    public function getResult() : Collection
     {
         return $this->handledLinks;
     }

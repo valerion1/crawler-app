@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Helpers;
 
@@ -20,7 +20,7 @@ class Collection implements Countable, ArrayAccess
      * Collection constructor.
      * @param array $items
      */
-    public function __construct (array $items = [])
+    public function __construct(array $items = [])
     {
         $this->items = $items;
     }
@@ -29,7 +29,7 @@ class Collection implements Countable, ArrayAccess
      * @param mixed $item
      * @return Collection
      */
-    public function push ($item) : self
+    public function push($item) : self
     {
         $this->offsetSet(null, $item);
 
@@ -40,7 +40,7 @@ class Collection implements Countable, ArrayAccess
      * @param array $items
      * @return Collection
      */
-    public function append (array $items) : self
+    public function append(array $items) : self
     {
         $this->items = array_merge($this->items, $items);
 
@@ -51,7 +51,7 @@ class Collection implements Countable, ArrayAccess
      * @param callable $callback
      * @return Collection
      */
-    public function map (callable $callback) : self
+    public function map(callable $callback) : self
     {
         $keys = array_keys($this->items);
 
@@ -64,7 +64,7 @@ class Collection implements Countable, ArrayAccess
      * @param callable $callback
      * @return Collection
      */
-    public function each (callable $callback) : self
+    public function each(callable $callback) : self
     {
         array_walk($this->items, $callback);
 
@@ -75,7 +75,7 @@ class Collection implements Countable, ArrayAccess
      * @param string $delimiter
      * @return string
      */
-    public function implode (string $delimiter = '') : string
+    public function implode(string $delimiter = '') : string
     {
         return implode($delimiter, $this->items);
     }
@@ -84,7 +84,7 @@ class Collection implements Countable, ArrayAccess
      * @param callable $callback
      * @return self
      */
-    public function sortBy (callable $callback) : self
+    public function sortBy(callable $callback) : self
     {
         usort($this->items, $callback);
 
@@ -94,7 +94,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return self
      */
-    public function unique () : self
+    public function unique() : self
     {
         $this->items = array_unique($this->items);
 
@@ -105,11 +105,11 @@ class Collection implements Countable, ArrayAccess
      * @param $searchItem
      * @return bool
      */
-    public function contains ($searchItem) : bool
+    public function contains($searchItem) : bool
     {
         $filteredItems = array_filter(
             $this->items,
-            function($item) use(&$searchItem) {
+            function ($item) use (&$searchItem) {
                 return (string)$item === (string)$searchItem;
             }
         );
@@ -120,7 +120,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return mixed
      */
-    public function first ()
+    public function first()
     {
         foreach ($this->items as $item) {
             return $item;
@@ -132,7 +132,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return int
      */
-    public function count () : int
+    public function count() : int
     {
         return \count($this->items);
     }
@@ -140,7 +140,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return bool
      */
-    public function isNotEmpty () : bool
+    public function isNotEmpty() : bool
     {
         return ! $this->isEmpty();
     }
@@ -148,7 +148,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return bool
      */
-    public function isEmpty () : bool
+    public function isEmpty() : bool
     {
         return $this->count() === 0;
     }
@@ -156,7 +156,7 @@ class Collection implements Countable, ArrayAccess
     /**
      * @return mixed
      */
-    public function shift ()
+    public function shift()
     {
         return array_shift($this->items);
     }
@@ -165,7 +165,7 @@ class Collection implements Countable, ArrayAccess
      * @param mixed $offset
      * @return bool
      */
-    public function offsetExists ($offset) : bool
+    public function offsetExists($offset) : bool
     {
         return array_key_exists($offset, $this->items);
     }
@@ -174,7 +174,7 @@ class Collection implements Countable, ArrayAccess
      * @param mixed $offset
      * @return mixed
      */
-    public function offsetGet ($offset)
+    public function offsetGet($offset)
     {
         return $this->items[$offset];
     }
@@ -197,7 +197,7 @@ class Collection implements Countable, ArrayAccess
      * @param mixed $offset
      * @return void
      */
-    public function offsetUnset ($offset) : void
+    public function offsetUnset($offset) : void
     {
         unset($this->items[$offset]);
     }

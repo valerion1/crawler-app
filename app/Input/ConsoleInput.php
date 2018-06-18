@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\Input;
 
@@ -19,7 +19,7 @@ class ConsoleInput implements ConsoleInputInterface
      * ConsoleInput constructor.
      * @param array $arguments
      */
-    public function __construct (array $arguments)
+    public function __construct(array $arguments)
     {
         $this->arguments = new Collection($arguments);
     }
@@ -27,7 +27,7 @@ class ConsoleInput implements ConsoleInputInterface
     /**
      * @return ConsoleInput
      */
-    public static function createFromGlobals () : ConsoleInput
+    public static function createFromGlobals() : ConsoleInput
     {
         return new self($_SERVER['argv']);
     }
@@ -35,7 +35,7 @@ class ConsoleInput implements ConsoleInputInterface
     /**
      * @return Collection
      */
-    public function getArguments () : Collection
+    public function getArguments() : Collection
     {
         return $this->arguments;
     }

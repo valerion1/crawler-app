@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App;
 
@@ -30,7 +30,7 @@ class App
      * @param CrawlerInterface $crawler
      * @param AbstractReportGenerator $reportGenerator
      */
-    public function __construct (CrawlerInterface $crawler, AbstractReportGenerator $reportGenerator)
+    public function __construct(CrawlerInterface $crawler, AbstractReportGenerator $reportGenerator)
     {
         $this->crawler         = $crawler;
         $this->reportGenerator = $reportGenerator;
@@ -40,14 +40,14 @@ class App
      * @param ConsoleInputInterface $consoleInput
      * @throws \Exception
      */
-    public function handle (ConsoleInputInterface $consoleInput)
+    public function handle(ConsoleInputInterface $consoleInput)
     {
         $targetDomain = $consoleInput->getArguments()->offsetGet(1);
 
         $this->validationUrl($targetDomain);
 
         $this->crawler->init($targetDomain)->run();
-        $crawlerResult = $this->crawler->getResult()->sortBy(function(Link $prev, Link $next) {
+        $crawlerResult = $this->crawler->getResult()->sortBy(function (Link $prev, Link $next) {
             return $prev->getCountImages() < $next->getCountImages();
         });
 
@@ -61,7 +61,7 @@ class App
      * @param string $url
      * @throws CrawlerDomainInvalidException
      */
-    private function validationUrl (?string $url) : void
+    private function validationUrl(?string $url) : void
     {
         $siteValidator = new SiteValidator($url);
 

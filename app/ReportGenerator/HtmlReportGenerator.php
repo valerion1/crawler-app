@@ -1,4 +1,4 @@
-<?php declare( strict_types = 1 );
+<?php declare(strict_types = 1);
 
 namespace App\ReportGenerator;
 
@@ -15,13 +15,13 @@ class HtmlReportGenerator extends AbstractReportGenerator
      * @param Collection $data
      * @return string
      */
-    protected function makeContent (Collection $data) : string
+    protected function makeContent(Collection $data) : string
     {
         $tableBuilder = new HtmlTableBuilder();
 
         $tableBuilder->setHeader($this->generateHeaderTable());
 
-        $htmlRows = $data->map(function(Link $link) {
+        $htmlRows = $data->map(function (Link $link) {
             return $this->linkToTableRow($link);
         })->implode();
 
@@ -34,7 +34,7 @@ class HtmlReportGenerator extends AbstractReportGenerator
     /**
      * @return string
      */
-    private function generateHeaderTable () : string
+    private function generateHeaderTable() : string
     {
         return '<tr>
                     <td>url</td>
@@ -47,7 +47,7 @@ class HtmlReportGenerator extends AbstractReportGenerator
      * @param Link $link
      * @return string
      */
-    private function linkToTableRow (Link $link) : string
+    private function linkToTableRow(Link $link) : string
     {
         return "<tr>
                     <td>{$link->getUrl()}</td>
@@ -59,7 +59,7 @@ class HtmlReportGenerator extends AbstractReportGenerator
     /**
      * @return string
      */
-    protected function saveDir () : string
+    protected function saveDir() : string
     {
         return __DIR__ . '/../../reports';
     }
