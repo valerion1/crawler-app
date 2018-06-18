@@ -2,7 +2,9 @@ version: '3'
 services:
 
   app:
-    image: php:7.2-cli
+    build:
+      context: ${PROJECT_DIR}
+      dockerfile: docker/app.dockerfile
     working_dir: /app
     volumes:
       - ${PROJECT_DIR}:/app
