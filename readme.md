@@ -26,6 +26,17 @@ For run with docker compose use bash script:
 
 ``docker run --rm -v $(pwd):/app -w /app php:7.2-cli ./vendor/bin/phpunit``
 
+## run code checkstyle:
+
+1. Install dependency:
+
+``docker run --rm -v $(pwd):/app -w /app composer install``
+
+2. Run phpcs:
+
+``docker run --rm -v $(pwd):/app -w /app php:7.2-cli ./vendor/bin/phpcs --standard=PSR1,PSR2 --ignore=./vendor/* .``
+
+
 ## what can this app?
 
 * crawl all pages on target domain
