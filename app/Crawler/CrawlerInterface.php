@@ -14,9 +14,9 @@ interface CrawlerInterface
      * Initialization first site url
      *
      * @param string $targetDomain
-     * @return static
+     * @return self
      */
-    public function init(string $targetDomain);
+    public function init(string $targetDomain) : CrawlerInterface;
 
     /**
      * Run crawler

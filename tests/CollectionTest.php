@@ -169,7 +169,7 @@ class CollectionTest extends TestCase
 
         $collection->push(new class
         {
-            public function __toString()
+            public function __toString() : string
             {
                 return 'tree';
             }
@@ -177,7 +177,7 @@ class CollectionTest extends TestCase
 
         $containsTree = $collection->contains(new class
         {
-            public function __toString()
+            public function __toString() : string
             {
                 return 'tree';
             }
@@ -187,7 +187,7 @@ class CollectionTest extends TestCase
 
         $containsFlower = $collection->contains(new class
         {
-            public function __toString()
+            public function __toString() : string
             {
                 return 'flower';
             }

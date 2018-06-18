@@ -43,9 +43,9 @@ class Crawler implements CrawlerInterface
 
     /**
      * @param string $targetDomain
-     * @return Crawler
+     * @return CrawlerInterface|Crawler
      */
-    public function init(string $targetDomain) : self
+    public function init(string $targetDomain) : CrawlerInterface
     {
         $normalizedDomain  = $this->normalizeUrl($targetDomain);
         $this->initialLink = new Link($normalizedDomain);

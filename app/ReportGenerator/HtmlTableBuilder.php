@@ -6,10 +6,6 @@ namespace App\ReportGenerator;
  * Class HtmlTableBuilder
  * @package App\ReportGenerator
  */
-/**
- * Class HtmlTableBuilder
- * @package App\ReportGenerator
- */
 class HtmlTableBuilder
 {
     /**

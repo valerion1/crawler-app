@@ -18,8 +18,7 @@ class CrawlerTest extends TestCase
     /**
      * Domain for tests
      */
-    const TEST_DOMAIN = 'http://example.com';
-
+    private const TEST_DOMAIN = 'http://example.com';
 
     /**
      * @return void
@@ -174,7 +173,6 @@ class CrawlerTest extends TestCase
                 self::TEST_DOMAIN,
             ],
         ]);
-
 
         $unhandledLinks = $reflection->getProperty('unhandledLinks');
         $unhandledLinks->setAccessible(true);

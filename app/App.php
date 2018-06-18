@@ -40,7 +40,7 @@ class App
      * @param ConsoleInputInterface $consoleInput
      * @throws \Exception
      */
-    public function handle(ConsoleInputInterface $consoleInput)
+    public function handle(ConsoleInputInterface $consoleInput) : void
     {
         $targetDomain = $consoleInput->getArguments()->offsetGet(1);
 
