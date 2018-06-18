@@ -17,6 +17,19 @@ class HtmlReportGenerator extends AbstractReportGenerator
      */
     protected function makeContent(Collection $data) : string
     {
+        $table = $this->generateTable($data);
+
+        $pageBuilder = new HtmlPageBuilder();
+        $pageBuilder->setBody($table);
+        return $pageBuilder->build();
+    }
+
+    /**
+     * @param Collection $data
+     * @return string
+     */
+    private function generateTable(Collection $data) : string
+    {
         $tableBuilder = new HtmlTableBuilder();
 
         $tableBuilder->setHeader($this->generateHeaderTable());
